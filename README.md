@@ -59,13 +59,22 @@ You will need to install the following locally:
 2. Re-deploy the web app to publish changes
 
 ## Monthly Cost Analysis
-Complete a month cost analysis of each Azure resource to give an estimate total cost using the table below:
+A monthly cost analysis of each Azure resource to give an estimate total cost using the table below:
 
 | Azure Resource | Service Tier | Monthly Cost |
 | ------------ | ------------ | ------------ |
-| *Azure Postgres Database* |     |              |
-| *Azure Service Bus*   |         |              |
-| ...                   |         |              |
+| *Azure Postgres Database* | Single Server Deployment, Basic Tier, 1 Gen 5 (1 vCo    |    US$34.98          |
+| *Azure Service Bus*   |Basic tier: 1 million messaging operations/mo  | US$0.05              |
+| *Azure App Service*   |   Free Tier; 1 F1 (0 Core(s), 1 GB RAM, 1 GB Storage) x 730 Hours; Windows OS |     US$0.00        |
+| *Azure Functions*     |  Consumption tier, 128 MB memory, 100 milliseconds execution time, 0 executions/mo|US$0.00 |
+| *Storage Account*     |   Block Blob Storage, General Purpose V1, LRS Redundancy, 200 GB Capacity - Pay as you go, 100 Storage transactions|    US$5.32          |
 
 ## Architecture Explanation
-This is a placeholder section where you can provide an explanation and reasoning for your architecture selection for both the Azure Web App and Azure Function.
+
+The modular architechture used in developing this application is the best for the kind of application. It allows *development to be divided* among smaller teams. This enables developers to work simultaneously and minimizes the time taken for development.
+
+The recovery of resources is easier as the *errors are easy to detect* and resolve. This is because the errors can be narrowed down to resources in the azure portal.
+
+Compared to a monolithic architecture, the application in modular architecture is easier to manage. The separate resources are easier to test, implement or design.
+
+
